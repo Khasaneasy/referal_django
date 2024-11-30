@@ -65,7 +65,6 @@ class RequestPhoneNumberView(APIView):
         if not phone_number:
             return Response({'error': 'Номер телефона обязателен'},
                             status=HTTPStatus.BAD_REQUEST)
-
         # генерация 4-значного кода
         auth_code = str(random.randint(1000, 9999))
         global auth_codes
