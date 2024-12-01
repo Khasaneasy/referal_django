@@ -1,0 +1,118 @@
+{
+    "info": {
+        "name": "Referral System API",
+        "description": "Postman collection for the Referral System API implemented using Django and DRF.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Request Phone Number",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"phone_number\": \"1234567890\" }",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/auth/request-phone/",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "request-phone"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Request Auth Code",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"phone_number\": \"1234567890\", \"auth_code\": \"1234\" }",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/auth/request-auth-code/",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "auth",
+                        "request-auth-code"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Profile",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/profile/",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "profile"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Activate Invite Code",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"invite_code\": \"DEF456\" }",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{base_url}}/profile/",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "profile"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
