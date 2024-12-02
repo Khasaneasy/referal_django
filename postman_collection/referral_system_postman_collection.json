@@ -1,118 +1,111 @@
 {
     "info": {
-        "name": "Referral System API",
-        "description": "Postman collection for the Referral System API implemented using Django and DRF.",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+      "_postman_id": "1c6fbb28-bc2c-4c5f-b482-1605f9f56f78",
+      "name": "Телефонная авторизация с инвайт-кодами",
+      "description": "API для авторизации по номеру телефона, инвайт-кодов и работы с профилем пользователя.",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
-        {
-            "name": "Request Phone Number",
-            "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{ \"phone_number\": \"1234567890\" }",
-                    "options": {
-                        "raw": {
-                            "language": "json"
-                        }
-                    }
-                },
-                "url": {
-                    "raw": "{{base_url}}/auth/request-phone/",
-                    "host": [
-                        "{{base_url}}"
-                    ],
-                    "path": [
-                        "auth",
-                        "request-phone"
-                    ]
-                }
-            },
-            "response": []
+      {
+        "name": "Запрос на номер телефона",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"phone_number\": \"+1234567890\"}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/auth/request-phone/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "auth",
+              "request-phone"
+            ]
+          }
         },
-        {
-            "name": "Request Auth Code",
-            "request": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{ \"phone_number\": \"1234567890\", \"auth_code\": \"1234\" }",
-                    "options": {
-                        "raw": {
-                            "language": "json"
-                        }
-                    }
-                },
-                "url": {
-                    "raw": "{{base_url}}/auth/request-auth-code/",
-                    "host": [
-                        "{{base_url}}"
-                    ],
-                    "path": [
-                        "auth",
-                        "request-auth-code"
-                    ]
-                }
-            },
-            "response": []
+        "response": []
+      },
+      {
+        "name": "Запрос на ввод кода",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"phone_number\": \"+1234567890\", \"auth_code\": \"1234\"}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/auth/request-auth-code/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "auth",
+              "request-auth-code"
+            ]
+          }
         },
-        {
-            "name": "Get Profile",
-            "request": {
-                "method": "GET",
-                "header": [
-                    {
-                        "key": "Authorization",
-                        "value": "Bearer {{auth_token}}",
-                        "type": "text"
-                    }
-                ],
-                "url": {
-                    "raw": "{{base_url}}/profile/",
-                    "host": [
-                        "{{base_url}}"
-                    ],
-                    "path": [
-                        "profile"
-                    ]
-                }
-            },
-            "response": []
+        "response": []
+      },
+      {
+        "name": "Получение профиля пользователя",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <access_token>"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8000/profile/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "profile"
+            ]
+          }
         },
-        {
-            "name": "Activate Invite Code",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Authorization",
-                        "value": "Bearer {{auth_token}}",
-                        "type": "text"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{ \"invite_code\": \"DEF456\" }",
-                    "options": {
-                        "raw": {
-                            "language": "json"
-                        }
-                    }
-                },
-                "url": {
-                    "raw": "{{base_url}}/profile/",
-                    "host": [
-                        "{{base_url}}"
-                    ],
-                    "path": [
-                        "profile"
-                    ]
-                }
-            },
-            "response": []
-        }
+        "response": []
+      },
+      {
+        "name": "Активация инвайт-кода",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer <access_token>"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"invite_code\": \"ABC123\"}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/profile/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "profile"
+            ]
+          }
+        },
+        "response": []
+      }
     ]
-}
+  }
+  

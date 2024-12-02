@@ -4,3 +4,4 @@ django-filter==23.1
 drf-yasg
 PyOTP
 python-decouple
+djangorestframework-simplejwt==4.7.2
